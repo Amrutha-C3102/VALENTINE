@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Secret Valentine ❤️</title>
+<title>Valentine For You ❤️</title>
 
 <style>
 body{
@@ -42,10 +42,11 @@ nav button{
     border-radius:20px;
     max-width:500px;
     margin:auto;
+    margin-bottom:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* Chat Box */
+/* Chat */
 .chatBox{
     background:#000;
     color:#00ff9d;
@@ -56,10 +57,13 @@ nav button{
     text-align:left;
     margin-bottom:15px;
 }
+
+/* Inputs */
 input{
     padding:10px;
     width:70%;
 }
+
 button{
     padding:10px 20px;
     border:none;
@@ -67,6 +71,7 @@ button{
     background:#ff4d6d;
     color:white;
     cursor:pointer;
+    margin:5px;
 }
 </style>
 </head>
@@ -81,35 +86,56 @@ button{
 
 <!-- HOME -->
 <div id="home" class="section active">
+
 <div class="card">
 <h1>Happy Valentine's Day ❤️</h1>
-<p>For My Favourite Person 💻</p>
 <p>From: <b>PAPU</b></p>
 <p>To: <b>MY KANDA</b></p>
 </div>
+
+<div class="card">
+<h2>Message For You 💌</h2>
+<p>
+You are my favourite notification, my safest place,  
+my best decision, and my forever person ❤️
+</p>
 </div>
 
-<!-- CHATBOT LOVE -->
+<div class="card">
+<h2>Important Question ❤️</h2>
+
+<p>Will you be my forever Valentine? 💘</p>
+
+<button onclick="answerYes()">Yes 😍</button>
+<button onclick="answerNo()">No 🙈</button>
+
+<p id="loveAnswer" style="margin-top:20px;font-weight:bold;color:#ff4d6d;"></p>
+
+</div>
+
+</div>
+
+<!-- CHAT -->
 <div id="chat" class="section">
 <div class="card">
 <h2>Love Chatbot 💬</h2>
 
 <div id="chatBox" class="chatBox"></div>
 
-<input id="chatInput" placeholder="type something......." />
+<input id="chatInput" placeholder="Type something..." />
 <button onclick="sendMsg()">Send</button>
 
 </div>
 </div>
 
-<!-- PASSWORD SECRET -->
+<!-- SECRET -->
 <div id="secret" class="section">
 <div class="card">
 <h2>Enter Password 🔐</h2>
 
-<input type="password" id="passInput" placeholder="Enter password" />
+<input type="password" id="passInput" placeholder="Enter Password" />
 <br><br>
-<button onclick="checkPass()">Unlock ❤️</button>
+<button onclick="cutecoder()">Unlock ❤️</button>
 
 <p id="secretMsg"></p>
 
@@ -126,48 +152,17 @@ function showSection(id){
     document.getElementById(id).classList.add('active');
 }
 
+/* YES NO QUESTION */
+function answerYes(){
+    document.getElementById("loveAnswer").innerHTML =
+    "Yayyy ❤️ I knew it! I love you so much 😘";
+}
+
+function answerNo(){
+    document.getElementById("loveAnswer").innerHTML =
+    "Nice try 😏 But you are already mine forever ❤️";
+}
+
 /* CHATBOT */
 function sendMsg(){
-    let input = document.getElementById("chatInput");
-    let box = document.getElementById("chatBox");
-
-    if(input.value.trim() === "") return;
-
-    box.innerHTML += "<div>> You: " + input.value + "</div>";
-
-    setTimeout(()=>{
-        box.innerHTML += "<div>> LoveBot: " + loveReply(input.value) + "</div>";
-        box.scrollTop = box.scrollHeight;
-    },500);
-
-    input.value="";
-}
-
-function loveReply(msg){
-    msg = msg.toLowerCase();
-
-    if(msg.includes("love")) return "I love you more ❤️";
-    if(msg.includes("miss")) return "I miss you every second 🥺";
-    if(msg.includes("hi")) return "Hi my favourite human 😘";
-    return "You are special to me always ❤️";
-}
-
-/* PASSWORD CHECK */
-function checkPass(){
-    let pass = document.getElementById("passInput").value;
-
-    /* CHANGE PASSWORD HERE */
-    if(pass === "iloveyou"){
-        document.getElementById("secretMsg").innerHTML =
-        "You are my safest place, my best friend, and my forever ❤️";
-    }
-    else{
-        document.getElementById("secretMsg").innerHTML =
-        "Wrong password 😜 Try again!";
-    }
-}
-
-</script>
-
-</body>
-</html>
+    let input = document.getElemen
